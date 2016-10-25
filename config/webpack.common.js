@@ -1,7 +1,19 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var helpers = require('./helpers');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const helpers = require('./helpers');
+
+const AUTOPREFIXER_BROWSERS = [
+  'ie >= 10',
+  'ie_mob >= 10',
+  'ff >= 30',
+  'chrome >= 34',
+  'safari >= 7',
+  'opera >= 23',
+  'ios >= 7',
+  'android >= 4.4',
+  'bb >= 10'
+];
 
 module.exports = {
   entry: {
@@ -27,15 +39,20 @@ module.exports = {
       }, {
         test: /\.scss$/,
         exclude: helpers.root('src', 'app'),
-        loader: ExtractTextPlugin.extract('style', 'css!sass?sourceMap')
+        loader: ExtractTextPlugin.extract('style', 'css!postcss!sass?sourceMap')
       }, {
         test: /\.scss$/,
         include: helpers.root('src', 'app'),
         exclude: /node_modules/,
-        loaders: ['raw-loader', 'sass-loader']
+        loaders: ['raw-loader', 'postcss-loader', 'sass-loader']
       },
-      { test: /\.css$/, loader: 'raw-loader' }
-    ]
+      { test: /\.css$/, loader: 'raw-loader!postcss-loader' }
+    ],
+    postcss: function () {
+      return [
+        require('autoprefixer')(AUTOPREFIXER_BROWSERS)
+      ]
+    }
   },
 
   plugins: [

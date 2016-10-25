@@ -15,29 +15,26 @@ module.exports = {
   },
 
   module: {
-    loaders: [
-      {
+    loaders: [{
         test: /\.ts$/,
         loaders: ['awesome-typescript-loader', 'angular2-template-loader']
-      },
-      {
+      }, {
         test: /\.html$/,
         loader: 'html'
-      },
-      {
+      }, {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
         loader: 'file?name=assets/[name].[hash].[ext]'
-      },
-      {
+      }, {
         test: /\.scss$/,
         exclude: helpers.root('src', 'app'),
         loader: ExtractTextPlugin.extract('style', 'css!sass?sourceMap')
-      },
-      {
+      }, {
         test: /\.scss$/,
         include: helpers.root('src', 'app'),
-        loader: 'raw!style!css?sourceMap'
-      }
+        exclude: /node_modules/,
+        loaders: ['raw-loader', 'sass-loader']
+      },
+      { test: /\.css$/, loader: 'raw-loader' }
     ]
   },
 

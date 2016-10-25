@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "angular2-template-loader": "^0.4.0",
+    "autoprefixer": "^6.5.1",
     "awesome-typescript-loader": "^2.2.4",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
@@ -44,6 +45,7 @@
     "node-sass": "*",
     "null-loader": "^0.1.1",
     "phantomjs-prebuilt": "^2.1.7",
+    "postcss-loader": "^1.0.0",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.2",
     "sass-loader": "*",

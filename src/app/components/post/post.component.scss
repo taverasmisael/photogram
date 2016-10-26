@@ -1,0 +1,126 @@
+@import "../../../../public/styles/variables";
+.post {
+  $selector: '.post';
+  @include df--col;
+  background: #fff;
+  border-radius: 0.4em;
+  box-shadow: 0px 2px 5px 0px rgba($black, 0.3);
+  height: 90vh;
+  margin-bottom: 2em;
+  min-height: 90vh;
+  overflow: hidden;
+  width: 100%;
+  @media screen and (min-width: 720px) {
+    height: 120vh;
+    margin-bottom: 4em;
+  }
+  &__username,
+  &__likes {
+    color: #263238;
+    font-weight: 500;
+  }
+  &__userpic {
+    border-radius: 50%;
+    display: inline-block;
+    height: 2em;
+    line-height: 0.5;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 2em;
+    .img {
+      border-radius: 50%;
+      display: inline-block;
+      height: auto;
+      max-width: 100%;
+      vertical-align: middle;
+    }
+  }
+  &__header {
+    @include df--row;
+    padding: 1em;
+    #{$selector}__username {
+      @include f--grow;
+    }
+  }
+  &__time {
+    color: lighten($black, 30);
+  }
+  &__body {
+    @include df--col;
+    @include f--grow;
+    height: 50%;
+    position: relative;
+    #{$selector}__image__container {
+      @include f--grow;
+      height: 100%;
+    }
+    #{$selector}__heart {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      font-size: 5rem;
+      color: white;
+      opacity: 0;
+      transform: translate(-50%) scale(0);
+      transition: all 350ms ease;
+      &.active {
+        opacity: 0.4;
+        transform: translate(-50%) scale(2);
+      }
+    }
+  }
+  &__image {
+    background: {
+      color: $brand-accent;
+      image: url(../../../../public/images/photo.png);
+      position: center center;
+      size: cover;
+    }
+    ;
+    width: 100%;
+    height: 100%;
+  }
+  &__meta {
+    margin-bottom: 1.5em;
+    padding: 0.5em 1em;
+  }
+  &__footer {
+    @include df--row;
+    border-top: 1px solid rgba(lighten($black, 10), 0.4);
+    margin: 0 auto;
+    padding: 1em 0;
+    width: 90%;
+  }
+  &__action {
+    color: lighten($black, 30);
+    transition: all 350 ease-in-out;
+    &:not(&--comment) {
+      font-size: 1.5em;
+    }
+    &:active {
+      color: lighten($black, 10)
+    }
+    &--love {
+      &.active {
+        color: $brand-accent;
+      }
+    }
+    &--comment {
+      @include f--grow;
+      align-items: center;
+      justify-content: center;
+      padding: 0 0.5em;
+    }
+  }
+}
+
+@keyframes heartSpand {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(0);
+  }
+}

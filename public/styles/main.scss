@@ -1,5 +1,14 @@
-$bgc: rgba(1, 71, 167, 0.77);
-body {
-    background: $bgc;
-    color: #fff;
+@import "variables";
+@import "icons";
+@import "base";
+.container {
+    max-width: 95%;
+    width: 95%;
+    margin: 0 auto;
+    @media screen and (min-width: 560px) {
+        width: 75%;
+    }
+    @media screen and (min-width: 720px) {
+        width: 50%;
+    }
 }

@@ -1,9 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'post-list',
-  templateUrl: './post-list.html'
+  selector: 'app-post-list',
+  templateUrl: './post-list.component.html',
+  styleUrls: ['./post-list.component.scss']
 })
-export class PostList {
-  constructor() {}
+export class PostListComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
 }

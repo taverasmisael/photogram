@@ -1,11 +1,16 @@
-import { Input, Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 
 @Component({
-  selector: 'post',
-  templateUrl: './post.html',
-  styleUrls: ['./post.component.scss']
+  selector: 'app-post',
+  templateUrl: './post.component.html',
+  styleUrls: ['./post.component.scss'],
 })
-export class Post {
-  @Input() post: any;
+export class PostComponent implements OnInit {
   constructor() {}
+
+  ngOnInit() {}
+
+  doubleClicked() {
+    alert('doubleClicked')
+  }
 }

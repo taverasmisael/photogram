@@ -1,1 +1,97 @@
-/* You can add global styles to this file, and also import other style files */
+$brand-color: #006064;
+$brand-accent: #c62828;
+$black: #212121;
+
+@mixin df {
+  display: flex;
+}
+
+@mixin df--row {
+  @include df;
+  flex-flow: row nowrap;
+}
+
+@mixin df--col {
+  @include df;
+  flex-flow: column nowrap;
+}
+
+@mixin df--wrap {
+  flex-wrap: wrap !important;
+}
+
+@mixin f--grow($basis: auto) {
+  flex: 1 0 $basis;
+}
+@mixin f--shrink($basis: auto) {
+  flex: 0 1 $basis;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: none;
+}
+html {
+  font-size: 16px;
+}
+
+body {
+  color: lighten($black, 10);
+  background: #f5f5f5;
+  font-family: Roboto, Helevetica, Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: $brand-color;
+}
+.container {
+  max-width: 95%;
+  width: 95%;
+  margin: 0 auto;
+  @media screen and (min-width: 560px) {
+    width: 75%;
+  }
+  @media screen and (min-width: 720px) {
+    width: 50%;
+  }
+}
+
+/* fallback */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v48/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2)
+    format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 95%;
+  width: 95%;
+  margin: 0 auto;
+  @media screen and (min-width: 560px) {
+    width: 75%;
+  }
+  @media screen and (min-width: 720px) {
+    width: 50%;
+  }
+}
